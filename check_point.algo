@@ -1,0 +1,48 @@
+///La longueur de la phrase
+ALGORITHM La longueur de la phrase
+VAR
+    phrase: STRING
+    nbr : INTEGER
+BEGIN
+    Write(" Je vais bien . ");
+    Read(phrase);
+    nbr <- length(phrase);
+    Write('nbr')
+END
+
+/// Le nombre de mots dans la phrase
+ALGORITHM Le nombre de mots dans la phrase
+VAR
+    phrase: STRING
+    i, nbr, cpt : INTEGER
+BEGIN
+    cpt<- 0;
+    i<- 1;
+    WHILE (i<=nbr) DO
+        WHILE (i<=nbr) AND (phrase[i]='') DO
+            i<-i+1;
+        END_WHILE
+        IF (i<=nbr) AND (phrase[i]<>'') THEN
+            cpt<-cpt+1;
+        END_IF
+        WHILE (i<=nbr) AND (phrase[i]<>'') DO
+            i<-i+1;
+        END_WHILE
+    END_WHILE
+    Write("Le nombre de mots est:", cpt);
+END
+
+///Le nombre de voyelles dans la phrase.
+ALGORITHM Voyelles
+FUNCTION nbrVoyelles(phrase: STRING) : INTEGER
+VAR
+    i,nbr: INTEGER
+BEGIN
+    nbr<- 0;
+    FOR i FROM 0 TO length(phrase) STEP -1  DO
+        IF (phrase[i]='a') OR (phrase[i]='e') OR (phrase[i]='i') OR (phrase[i]='o') OR (phrase[i]='u') OR (phrase[i]='y') THEN
+            nbr<-nbr+1;
+        END_IF
+    END_FOR
+    RETURN nbr;
+END
